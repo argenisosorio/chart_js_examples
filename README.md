@@ -14,4 +14,4 @@
 
 ## Demo in:
 
-<a href="#">xxx</a>
+<a href="https://argenisosorio.github.io/chart_js_examples/">https://argenisosorio.github.io/chart_js_examples/</a>
