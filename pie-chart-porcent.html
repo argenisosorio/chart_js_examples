@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Bar Chart</title>
+  <script src="lib/js/chart.bundle.js"></script>
+  <script src="lib/js/utils.js"></script>
+  <script src="lib/js/jquery-1.12.4.min.js"></script>
+  <link rel="stylesheet" href="lib/css/styles.css">
+</head>
+<body>
+
+<a href="https://github.com/argenisosorio/" target="_blank">
+  <img src="lib/img/github-icon.png" width="50px">Verme en GitHub</img>
+</a>
+<br />
+<br />
+<!-- Menú -->
+<div>
+  <a href="index.html">Simple Bars</a> |
+  <a href="bars-chart_random.html">Random Bars</a> |
+  <a href="pie-chart.html">Pie Chart</a> |
+  <a href="pie-chart-porcent.html">Pie Chart Porcent</a>
+</div>
+<!-- End Menú -->
+
+<h2>
+  Votos totales:
+  <span class="total"></span>
+</h2>
+<h2 class="texto_votos_duros">
+  Votos duros:
+  <span class="a"></span> |
+  <span class="ap"></span>
+</h2>
+<h2 class="texto_votos_nulos">
+  Sin Votos / Nulos:
+  <span class="b"></span> |
+  <span class="bp"></span>
+</h2>
+<h2 class="texto_votos_contrarios">
+  Votos Contrarios
+  <span class="c"></span> |
+  <span class="cp"></span>
+</h2>
+<canvas id="pie-chart" width="600" height="250"></canvas>
+<script type="text/javascript">
+// Datos de entrada.
+var total = 100;
+var a = 50;
+var b = 20;
+var c = 30;
+
+// Fórmula estadística para el cálculo de porcentajes.
+var ap = (a/total)*100;
+var bp = (b/total)*100;
+var cp = (c/total)*100;
+
+// Se agregan las variables a sus respectivos lugares para mostrar los datos en el gráfico y se truncan los decimales a 2 dígitos.
+ap = ap.toFixed(2)
+bp = bp.toFixed(2)
+cp = cp.toFixed(2)
+
+// Escribimos el valor de las variables en el documento.
+$(document).ready(function() {
+  $(".total").html(total);
+  $(".a").html(a);
+  $(".ap").html(ap+"%");
+  $(".b").html(b);
+  $(".bp").html(bp+"%");
+  $(".c").html(c);
+  $(".cp").html(cp+"%");
+});
+
+// Función para crear el gráfico de torta y escribirlo en el documento.
+new Chart(document.getElementById("pie-chart"), {
+  type: 'pie',
+  data: {
+    labels: ["Votos duros", "Sin Votos / Nulos", "Votos contrarios"],
+    datasets: [{
+    label: "Votos",
+    backgroundColor: ["red", "gray","blue"],
+    data: [ap,bp,cp]
+    }]
+  },
+  options: {
+    title: {
+    display: true,
+    text: 'Votos'
+    }
+  }
+});
+</script>
+</body>
+</html>

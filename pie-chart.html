@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Bar Chart</title>
+  <script src="lib/js/chart.bundle.js"></script>
+  <script src="lib/js/utils.js"></script>
+</head>
+<body>
+
+<a href="https://github.com/argenisosorio/" target="_blank">
+  <img src="lib/img/github-icon.png" width="50px">Verme en GitHub</img>
+</a>
+<br />
+<br />
+<!-- Menú -->
+<div>
+  <a href="index.html">Simple Bars</a> |
+  <a href="bars-chart_random.html">Random Bars</a> |
+  <a href="pie-chart.html">Pie Chart</a> |
+  <a href="pie-chart-porcent.html">Pie Chart Porcent</a>
+</div>
+<!-- End Menú -->
+
+<canvas id="pie-chart" width="600" height="250"></canvas>
+<script type="text/javascript">
+new Chart(document.getElementById("pie-chart"), {
+  type: 'pie',
+  data: {
+    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+    datasets: [{
+    label: "Population (millions)",
+    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+    data: [2478,5267,734,784,433]
+    }]
+  },
+  options: {
+    title: {
+    display: true,
+    text: 'Predicted world population (millions) in 2050'
+    }
+  }
+});
+</script>
+
+</body>
+
+</html>

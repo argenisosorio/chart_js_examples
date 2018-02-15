@@ -1,0 +1,11 @@
+.texto_votos_duros {
+  color: red;
+}
+
+.texto_votos_nulos {
+  color: gray;
+}
+
+.texto_votos_contrarios {
+  color: blue;
+}
